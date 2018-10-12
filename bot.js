@@ -12,10 +12,7 @@ client.on('ready', function() {
     console.log(`i am ready ${client.user.username}`);
 });
  
-      client.on('ready', () => {
-              client.user.setActivity("hplay | .Fun", {type: 'LISTENING'});
-     
-      });
+
 /*
 ////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
 ////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
