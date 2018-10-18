@@ -289,7 +289,7 @@ client.on('message', message => {
 
  message.author.sendMessage(`
  **
-***__Vip Bot__***
+**__Vip Bot__**
 
 $join -  دخول البوت الي الروم
 $play -  لتشغيل أغنية برآبط أو بأسم
@@ -326,7 +326,7 @@ client.on('message', message => {
 
  message.author.sendMessage(`
  **
-***__Vip Bot__***
+**__Vip Bot__**
 
 رابط البوت
 https://discordapp.com/oauth2/authorize?client_id=481622608534831104&permissions=8&scope=bot
@@ -343,16 +343,17 @@ https://discordapp.com/oauth2/authorize?client_id=481622608534831104&permissions
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+client.on('message', message => {
+            if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('$bc')){
+ if (message.author.id !== '466425075487342615') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
+ if(!message.author.id === '466425075487342615') return;
+message.channel.sendMessage('جار ارسال الرسالة |✅')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+});
 
  client.login(process.env.BOT_TOKEN);
