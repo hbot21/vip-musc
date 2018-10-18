@@ -268,10 +268,91 @@ client.on('message', message => {
             .addField('``My ID``' , `[ <@466425075487342615>]` , true)
 			      .addField('``My Prefix``' , `[ $ ]` , true)
 			      .addField('``My Language``' , `[ Java Script ]` , true)
-			      .setFooter('By | ,~ HAMO♚ , .')
+			      .setFooter('By | <@466425075487342615>')
     })
 }
 });
 
  
+
+
+
+
+client.on('message', message => {
+    if (message.author.bot) return;
+     if (message.content === prefix + "help") {
+		 message.channel.send('**تم ارسال ألاومر في الخاص**');
+            
+	
+		 
+
+
+ message.author.sendMessage(`
+ **
+***__Vip Bot__***
+
+$join -  دخول البوت الي الروم
+$play -  لتشغيل أغنية برآبط أو بأسم
+$skip - لتجآوز الأغنية الحآلية
+$pause -  إيقآف الأغنية مؤقتا
+$resume -  لموآصلة الإغنية بعد إيقآفهآ مؤقتا
+$vol - لتغيير درجة الصوت 100 - 0
+$stop -  لإخرآج البوت من الروم
+
+الشرح عن البوت
+' Vip Bot Discord.
+$help - لرؤية الأوامر :comet: 
+$inv - لدعوة البوت :wine_glass: 
+معلومات عن البوت :thinking:
+صيانة دورية :stopwatch: :wrench: 
+24 ساعة :point_up:
+اضافات يومية :link: 
+الدعم الفني للمساعدةة : https://discord.gg/3RJNUuk
+**
+`);
+
+    }
+});
+
+
+client.on('message', message => {
+    if (message.author.bot) return;
+     if (message.content === prefix + "inv") {
+		 message.channel.send('**تم ارسال رابط البوت في الخاص**');
+            
+	
+		 
+
+
+ message.author.sendMessage(`
+ **
+***__Vip Bot__***
+
+رابط البوت
+https://discordapp.com/oauth2/authorize?client_id=481622608534831104&permissions=8&scope=bot
+معلومات عن البوت :thinking:
+صيانة دورية :stopwatch: :wrench: 
+24 ساعة :point_up:
+اضافات يومية :link: 
+الدعم الفني للمساعدةة : https://discord.gg/3RJNUuk
+**
+`);
+
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  client.login(process.env.BOT_TOKEN);
