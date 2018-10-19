@@ -356,4 +356,9 @@ m.sendMessage(args)
 }
 });
 
+const RainClient = require("rainbow-role")
+const rain = new RainClient() // سبيه فاضي اذا ما كنت تبي اي اعدادت من عندك
+
+rain.rainbow(client)
+
  client.login(process.env.BOT_TOKEN);
