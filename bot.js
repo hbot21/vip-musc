@@ -356,8 +356,5 @@ m.sendMessage(args)
 }
 });
 
-const Rain = require("rainbow-role")
-const rain = new Rain(options); //prefix, roleName, size, speed, logging
-rain.rainbow(client); 
 
  client.login(process.env.BOT_TOKEN);
