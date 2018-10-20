@@ -416,7 +416,7 @@ if(!message.channel.guild) return;
             
         
                           //دخولك الديسكورد
-                          var day = `منذ ${days.toFixed(0)} يوم`
+                          var day = `Day ${days.toFixed(0)} `
                           ctx.font = '27px Arial Bold';
                           ctx.fontSize = '30px';
                           ctx.fillStyle = "#ffffff";
@@ -434,7 +434,7 @@ if(!message.channel.guild) return;
   const days1 = millis1 / 1000 / 60 / 60 / 24;
   
                         //دخولك السيرفر
-                        var day2 = `منذ ${days1.toFixed(0)} يوم`
+                        var day2 = `Day ${days1.toFixed(0)} 
                         ctx.font = '27px Arial Bold';
                         ctx.fontSize = '20px';
                         ctx.fillStyle = "#ffffff";
@@ -457,13 +457,13 @@ if(!message.channel.guild) return;
                         //حالتك
                            let status;
     if (h.presence.status === 'online') {
-        status = 'اون لاين';
+        status = 'online';
     } else if (h.presence.status === 'dnd') {
-        status = 'مشغول';
+        status = 'dnd';
     } else if (h.presence.status === 'idle') {
-        status = 'خمول';
+        status = 'idle';
     } else if (h.presence.status === 'offline') {
-        status = 'اوف لاين';
+        status = 'offline';
     }
                         ctx.font = '27px Arial Bold';//ALPHACODE
                         ctx.fontSize = '30px';
