@@ -419,7 +419,7 @@ if(!message.channel.guild) return;
                           var day = ` ${days.toFixed(0)} `
                           ctx.font = '27px Arial Bold';
                           ctx.fontSize = '30px';
-                          ctx.fillStyle = "#ffffff";
+                          ctx.fillStyle = "#030000";
                           ctx.textAlign = "center";
                           ctx.fillText(day, 109, 97)
               //wl
@@ -437,20 +437,20 @@ if(!message.channel.guild) return;
                         var day2 = ` ${days1.toFixed(0)} `
                         ctx.font = '27px Arial Bold';
                         ctx.fontSize = '20px';
-                        ctx.fillStyle = "#ffffff";
+                        ctx.fillStyle = "#030000";
                         ctx.textAlign = "center";
                         ctx.fillText(day2, 388, 97); 
 
                         //ur name
                         ctx.font = '27px BlowBrush';
                         ctx.fontSize = '30px';
-                        ctx.fillStyle = "#FFFFFF";
+                        ctx.fillStyle = "#030000";
                         ctx.textAlign = "center";
                         ctx.fillText(h.user.username, 245, 365);
                         //tag
                         ctx.font = '27px Arial Bold';
                         ctx.fontSize = '45px';
-                        ctx.fillStyle = "#ffffff";
+                        ctx.fillStyle = "#030000";
                         ctx.textAlign = "center";
                         ctx.fillText(`#${heg.discriminator}`, 120, 450);
                         
@@ -467,7 +467,7 @@ if(!message.channel.guild) return;
     }
                         ctx.font = '27px Arial Bold';//ALPHACODE
                         ctx.fontSize = '30px';
-                        ctx.fillStyle = "#ffffff";
+                        ctx.fillStyle = "#030000";
                         ctx.textAlign = "center";
                         ctx.fillText(`${status}`, 380, 450);//ALPHACODE
                         
