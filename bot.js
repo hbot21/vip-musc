@@ -416,7 +416,7 @@ if(!message.channel.guild) return;
             
         
                           //دخولك الديسكورد
-                          var day = `منذ ${days.toFixed(0)} يوم`
+                          var day = ` ${days.toFixed(0)} `
                           ctx.font = '27px Arial Bold';
                           ctx.fontSize = '30px';
                           ctx.fillStyle = "#ffffff";
@@ -434,7 +434,7 @@ if(!message.channel.guild) return;
   const days1 = millis1 / 1000 / 60 / 60 / 24;
   
                         //دخولك السيرفر
-                        var day2 = `منذ ${days1.toFixed(0)} يوم`
+                        var day2 = ` ${days1.toFixed(0)} `
                         ctx.font = '27px Arial Bold';
                         ctx.fontSize = '20px';
                         ctx.fillStyle = "#ffffff";
