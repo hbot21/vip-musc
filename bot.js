@@ -457,13 +457,13 @@ if(!message.channel.guild) return;
                         //حالتك
                            let status;
     if (h.presence.status === 'online') {
-        status = 'اون لاين';
+        status = 'online';
     } else if (h.presence.status === 'dnd') {
-        status = 'مشغول';
+        status = 'dnd';
     } else if (h.presence.status === 'idle') {
-        status = 'خمول';
+        status = 'idle';
     } else if (h.presence.status === 'offline') {
-        status = 'اوف لاين';
+        status = 'offline';
     }
                         ctx.font = '27px Arial Bold';//ALPHACODE
                         ctx.fontSize = '30px';
