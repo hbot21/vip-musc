@@ -528,7 +528,7 @@ let mutetime = args[1];
     if(!mutetime) return message.reply("**يرجى تحديد وقت الميوت**:x:");
  
     await(tomute.addRole(muterole.id));
-message.reply(`<${tomute.id}> ${ms(ms(mutetime))} : **تم اعطائه ميوت ومدة الميوت**`);
+message.reply(`<@${tomute.id}> } : **تم اعطائه ميوت ومدة الميوت**`);
 setTimeout(function(){
       tomute.removeRole(muterole.id);
       message.channel.send(`<@${tomute.id}> **انقضى الوقت وتم فك الميوت عن الشخص**:white_check_mark: `);
