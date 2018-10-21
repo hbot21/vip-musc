@@ -683,7 +683,6 @@ client.on('message',async message => {
 
 
 const hero = new Discord.Client({disableEveryone: true, maxMessagesCache: 1});
-const config = { prefix: "$" };
 const tpoints = {};
 const vpoints = {};
 hero.config = config;
