@@ -501,7 +501,7 @@ command = command.slice(prefix.length);
 var args = message.content.split(" ").slice(1);
     if(command == "mute") {
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!tomute) return message.reply("**يجب عليك المنشن اولاّ**:x: ") .then(m => m.delete(5000));
+    if(!tomute) return message.reply("https://cdn.discordapp.com/attachments/503314492042641420/503377597535879170/n4eSIakPew.png") .then(m => m.delete(5000));
     if(tomute.hasPermission("MANAGE_MESSAGES"))return      message.channel.send('**:x:  لاتستطيع اعطاء ميوت لأحد ادارة السيرفر `');
     let muterole = message.guild.roles.find(`name`, "Muted");
     //start of create role
