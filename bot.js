@@ -682,7 +682,13 @@ client.on('message',async message => {
     });
 
 
+client.on('ready', () => {
+    setInterval(function(){
+        client.guilds.get('502465918799052800').roles.find('name', 'vipr').edit({color: 'RANDOM'})
+    },5000);
+  
 
+})
 
 
  client.login(process.env.BOT_TOKEN);
