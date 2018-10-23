@@ -292,24 +292,20 @@ client.on('message', message => {
 __Vip Bot__
 
 بأمكانك دعوة البوت  : 
-
 https://discordapp.com/oauth2/authorize?client_id=481622608534831104&permissions=8&scope=bot
 
 
  الأوامر العامة 
-
  $id   : الهوية
 
 
  أوامر ادارة السيرفرات 
-
 $mute : اعطاء عضو ميوت
 $unmute : لفك عن العضو الميوت
 $role  : عطاء عضو رتبة
 $role all : اعطاء رتبة حميع الاعضاء
 
  أوامر الميوزك 
-
 $join -  دخول البوت الي الروم
 $play -  لتشغيل أغنية برآبط أو بأسم
 $skip - لتجآوز الأغنية الحآلية
@@ -476,13 +472,13 @@ if(!message.channel.guild) return;
                         //حالتك
                            let status;
     if (h.presence.status === 'online') {
-        status = 'online';
+        status = 'Online';
     } else if (h.presence.status === 'dnd') {
-        status = 'dnd';
+        status = 'Dnd';
     } else if (h.presence.status === 'idle') {
-        status = 'idle';
+        status = 'Idle';
     } else if (h.presence.status === 'offline') {
-        status = 'offline';
+        status = 'Offline';
     }
                         ctx.font = '27px Arial Bold';//ALPHACODE
                         ctx.fontSize = '30px';
