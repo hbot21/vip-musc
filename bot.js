@@ -322,7 +322,7 @@ $inv - لدعوة البوت :wine_glass:
 صيانة دورية :stopwatch: :wrench: 
 24 ساعة :point_up:
 اضافات يومية :link: 
-الدعم الفني للمساعدةة : https://discord.gg/3RJNUuk
+الدعم الفني للمساعدةة : https://discord.gg/sskCJk5
 **
 `);
 
