@@ -289,7 +289,26 @@ client.on('message', message => {
 
  message.author.sendMessage(`
  **
-**__Vip Bot__**
+__Vip Bot__
+
+بأمكانك دعوة البوت  : 
+
+https://discordapp.com/oauth2/authorize?client_id=481622608534831104&permissions=8&scope=bot
+
+
+ الأوامر العامة 
+
+ $id   : الهوية
+
+
+ أوامر ادارة السيرفرات 
+
+$mute : اعطاء عضو ميوت
+$unmute : لفك عن العضو الميوت
+$role  : عطاء عضو رتبة
+$role all : اعطاء رتبة حميع الاعضاء
+
+ أوامر الميوزك 
 
 $join -  دخول البوت الي الروم
 $play -  لتشغيل أغنية برآبط أو بأسم
