@@ -337,7 +337,6 @@ client.on('message', message => {
 
  message.author.sendMessage(`
  **
-**__Vip Bot__**
  سيرفر المساعدة : 
 https://discord.gg/7YZMXZe
 **
@@ -357,8 +356,6 @@ client.on('message', message => {
 
  message.author.sendMessage(`
  **
-**__Vip Bot__**
-
 رابط البوت
 https://discordapp.com/oauth2/authorize?client_id=481622608534831104&permissions=8&scope=bot
 معلومات عن البوت :thinking:
