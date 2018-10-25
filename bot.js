@@ -814,8 +814,6 @@ msg.channel.sendEmbed(embed);
 }
 });
 
-
-var prefix = "$";
 client.on('message', message => {
     if(message.content === prefix + 'cr-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
