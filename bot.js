@@ -206,27 +206,27 @@ function isYoutube(str) {
 
 
 const devs = ["466425075487342615"];
-const adminprefix = ["$"];
+const adminprefix = ["$v"];
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!devs.includes(message.author.id)) return;
 
-  if (message.content.startsWith(adminprefix + 'gam')) {
+  if (message.content.startsWith(adminprefix + 'g')) {
     client.user.setGame(argresult);
       message.channel.send(`**✅ تم تغيير الحالة بنجاح ${argresult}**`)
   } else
      if (message.content === (adminprefix + "lev")) {
     message.guild.leave();
   } else
-  if (message.content.startsWith(adminprefix + 'wt')) {
+  if (message.content.startsWith(adminprefix + 'w')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
       message.channel.send(`**✅ تم تغيير الحالة بنجاح ${argresult}**`)
   } else
-  if (message.content.startsWith(adminprefix + 'li')) {
+  if (message.content.startsWith(adminprefix + 'l')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
       message.channel.send(`**✅ تم تغيير الحالة بنجاح ${argresult}**`)
   } else
-  if (message.content.startsWith(adminprefix + 'strimng')) {
+  if (message.content.startsWith(adminprefix + 's')) {
     client.user.setGame(argresult, "https://www.twitch.tv/idk");
       message.channel.send(`**✅ تم تغيير الحالة بنجاح **`)
   }
@@ -774,6 +774,48 @@ message.author.send(`**مدة الرابط : يـوم
     }
 });
 
+
+client.on("message", msg => {//By DEL.25♥♥#1406 || هاشم || Alpha Codes || All copyrights for me & Alpha Codes.
+var prefix = '-';// البرفكس
+var m = msg.guild.name
+var d = msg.guild.memberCount
+var p = msg.guild.roles.size
+var c = msg.guild.channels.size
+var l = msg.guild.region
+var o = msg.guild.iconURL
+var k = msg.guild.owner
+var i = msg.guild.emojis.size
+var b = msg.guild.members.filter(m => m.user.bot).size
+var h = d - b
+var cre = `${moment(msg.guild.createdAt).format('D/M/YYYY h:mm a')} **\n** \`${moment(msg.guild.createdAt).fromNow()}\``
+var t = msg.guild.channels.filter(e => e.type === "text")
+var v = msg.guild.channels.filter(e => e.type === "voice")
+var pow = msg.guild.verificationLevel
+var e = msg.guild.emojis.size
+var e2 = msg.guild.emojis.array()
+var afk = msg.guild.afkChannel
+var ID = msg.guild.id
+if (msg.content.startsWith(prefix + "servers")){// الامر
+var embed = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setThumbnail(o)
+.addField("👑**Owner by**👑⤵", k, true)
+.addField("📜**Name**📜⤵", m, true)
+.addField("🆔**ID**🆔⤵", ID, true)
+.addField("👥**MembersAll**🤖⤵", d, true)
+.addField("📕**Roles**📕⤵", p, true)
+.addField("📕**Channels**📕⤵", c, true)
+.addField("🌐**Region**🌐⤵", l, true)
+.addField("🤖**Bots**🤖⤵", b, true)
+.addField("👥**Humans**👥⤵", h, true)
+.addField("📝**TextRooms**📝⤵", `${t.size}`, true)
+.addField("🔒**verificationLevel**🔒➥", pow, true)
+.addField("🎤**VoiceRooms**🎤⤵", `${v.size}`, true)
+.addField("📆Created At📆⤵", cre,true)
+.addField("🛏AFKRoom🛏⤵", afk, true)
+msg.channel.sendEmbed(embed);
+}
+});
 
 
  client.login(process.env.BOT_TOKEN);
