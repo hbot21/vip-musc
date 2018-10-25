@@ -339,7 +339,7 @@ client.on('message', message => {
  **
 **__Vip Bot__**
  سيرفر المساعدة : 
-https://discord.gg/3RJNUuk
+https://discord.gg/7YZMXZe
 **
 `);
 
@@ -377,7 +377,7 @@ https://discordapp.com/oauth2/authorize?client_id=481622608534831104&permissions
 client.on('message', message => {
             if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('$bc')){
+if (message.content.startsWith('$bcall')){
  if (message.author.id !== '466425075487342615') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
  if(!message.author.id === '466425075487342615') return;
 message.channel.sendMessage('جار ارسال الرسالة |✅')
