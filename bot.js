@@ -775,8 +775,7 @@ message.author.send(`**مدة الرابط : يـوم
 });
 
 
-client.on("message", msg => {//By DEL.25♥♥#1406 || هاشم || Alpha Codes || All copyrights for me & Alpha Codes.
-var prefix = '-';// البرفكس
+client.on("message", msg => {//By, HAMO♚ ~ ZA .#0001
 var m = msg.guild.name
 var d = msg.guild.memberCount
 var p = msg.guild.roles.size
@@ -799,20 +798,18 @@ if (msg.content.startsWith(prefix + "servers")){// الامر
 var embed = new Discord.RichEmbed()
 .setColor("RANDOM")
 .setThumbnail(o)
-.addField("👑**Owner by**👑⤵", k, true)
+.addField("👑**Owned by**👑⤵", k, true)
 .addField("📜**Name**📜⤵", m, true)
-.addField("🆔**ID**🆔⤵", ID, true)
-.addField("👥**MembersAll**🤖⤵", d, true)
-.addField("📕**Roles**📕⤵", p, true)
-.addField("📕**Channels**📕⤵", c, true)
-.addField("🌐**Region**🌐⤵", l, true)
-.addField("🤖**Bots**🤖⤵", b, true)
-.addField("👥**Humans**👥⤵", h, true)
+.addField("🆔**Server ID:**", ID, true)
+.addField("👥**MembersAll**", d, true)
+.addField("📕**Roles**", p, true)
+.addField("📕**Channels**", c, true)
+.addField("🌐**Region**", l, true)
+.addField("🤖**Bots**", b, true)
+.addField("👥**Members**", h, true)
 .addField("📝**TextRooms**📝⤵", `${t.size}`, true)
-.addField("🔒**verificationLevel**🔒➥", pow, true)
-.addField("🎤**VoiceRooms**🎤⤵", `${v.size}`, true)
-.addField("📆Created At📆⤵", cre,true)
-.addField("🛏AFKRoom🛏⤵", afk, true)
+.addField("🎤**VoiceRooms**", `${v.size}`, true)
+.addField("📆**Created On**", cre,true)
 msg.channel.sendEmbed(embed);
 }
 });
