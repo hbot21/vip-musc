@@ -259,7 +259,6 @@ client.on('message', message => {
             .setThumbnail(client.user.avatarURL)
             .setColor('RANDOM')
             .setTitle('**``Vip Bot``**')
-            .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
             .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
             .addField('``servers``', [client.guilds.size], true)
             .addField('``channels``' , `[ ${client.channels.size} ]` , true)
@@ -294,9 +293,10 @@ __Vip Bot__
 بأمكانك دعوة البوت  : 
 https://discordapp.com/oauth2/authorize?client_id=481622608534831104&permissions=8&scope=bot
 
-
  الأوامر العامة 
- $id   : الهوية
+$color   : لتغيير لونك في السيرفر
+$colors  : قائمة الألوان
+$id   : الهوية
 
 
  أوامر ادارة السيرفرات 
@@ -304,31 +304,47 @@ $mute : اعطاء عضو ميوت
 $unmute : لفك عن العضو الميوت
 $role  : عطاء عضو رتبة
 $role all : اعطاء رتبة حميع الاعضاء
+$cr-colors : انشاء 50 لون
 
  أوامر الميوزك 
-$join -  دخول البوت الي الروم
-$play -  لتشغيل أغنية برآبط أو بأسم
-$skip - لتجآوز الأغنية الحآلية
-$pause -  إيقآف الأغنية مؤقتا
-$resume -  لموآصلة الإغنية بعد إيقآفهآ مؤقتا
-$vol - لتغيير درجة الصوت 100 - 0
-$stop -  لإخرآج البوت من الروم
+$join :  دخول البوت الي الروم
+$play : لتشغيل أغنية برآبط أو بأسم
+$skip : لتجآوز الأغنية الحآلية
+$pause :  إيقآف الأغنية مؤقتا
+$resume :  لموآصلة الإغنية بعد إيقآفهآ مؤقتا
+$vol : لتغيير درجة الصوت 100 - 0
+$stop :  لإخرآج البوت من الروم
 
-الشرح عن البوت
-' Vip Bot Discord.
-$help - لرؤية الأوامر :comet: 
-$inv - لدعوة البوت :wine_glass: 
-معلومات عن البوت :thinking:
-صيانة دورية :stopwatch: :wrench: 
-24 ساعة :point_up:
-اضافات يومية :link: 
-الدعم الفني للمساعدةة : https://discord.gg/sskCJk5
+  اخري
+$inv  : لدعوة البوت الى سيرفرك
+$ping  : لمعرفة سرعة استجابة البوت في الوقت الحالي
+$support  : سيرفر الدعم الفني
 **
 `);
 
     }
 });
 
+
+client.on('message', message => {
+    if (message.author.bot) return;
+     if (message.content === prefix + "support") {
+		 message.channel.send('**تم ارسال رابط السيرفر في الخاص**');
+            
+	
+		 
+
+
+ message.author.sendMessage(`
+ **
+**__Vip Bot__**
+ سيرفر المساعدة : 
+https://discord.gg/3RJNUuk
+**
+`);
+
+    }
+});
 
 client.on('message', message => {
     if (message.author.bot) return;
