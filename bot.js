@@ -1327,7 +1327,13 @@ setInterval(function(){})
 
 
 
-
+client.on('guildCreate', guild => {
+  client.channels.get("504917731234283571").send(`:white_check_mark: **تم اضافة البوت في سيرفر جديد مبروكك
+Server name: __${guild.name}__
+Server owner: __${guild.owner}__
+Server id: __${guild.id}__ 
+Server Count: __${guild.memberCount}__**`)
+});
 
 
 
