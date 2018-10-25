@@ -794,12 +794,12 @@ var e = msg.guild.emojis.size
 var e2 = msg.guild.emojis.array()
 var afk = msg.guild.afkChannel
 var ID = msg.guild.id
-if (msg.content.startsWith(prefix + "servers")){// الامر
+if (msg.content.startsWith(prefix + "server")){// الامر
 var embed = new Discord.RichEmbed()
 .setColor("RANDOM")
 .setThumbnail(o)
-.addField("👑**Owned by**👑⤵", k, true)
-.addField("📜**Name**📜⤵", m, true)
+.addField("👑**Owned by**", k, true)
+.addField("📜**Name**", m, true)
 .addField("🆔**Server ID:**", ID, true)
 .addField("👥**MembersAll**", d, true)
 .addField("📕**Roles**", p, true)
@@ -807,7 +807,7 @@ var embed = new Discord.RichEmbed()
 .addField("🌐**Region**", l, true)
 .addField("🤖**Bots**", b, true)
 .addField("👥**Members**", h, true)
-.addField("📝**TextRooms**📝⤵", `${t.size}`, true)
+.addField("📝**TextRooms**", `${t.size}`, true)
 .addField("🎤**VoiceRooms**", `${v.size}`, true)
 .addField("📆**Created On**", cre,true)
 msg.channel.sendEmbed(embed);
