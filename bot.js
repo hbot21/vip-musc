@@ -815,16 +815,7 @@ msg.channel.sendEmbed(embed);
 });
 
 
-client.on('message', message => {//alpha codes
-if (message.content.startsWith(prefix + 'tag')) {
-    let args = message.content.split(" ").slice(1);
-if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد'); //alpha codes
- 
-    figlet(args.join(" "), (err, data) => {
-              message.channel.send("```" + data + "```") //alpha codes
-           })
-}
-});
+
 
 
  client.login(process.env.BOT_TOKEN);
