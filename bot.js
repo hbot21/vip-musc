@@ -1335,6 +1335,11 @@ Server id: __${guild.id}__
 Server Count: __${guild.memberCount}__**`)
 });
 
+client.on("message", message => {
 
+  if (message.content.startsWith(prefix + "avatar")) {
+    message.channel.send(message.author.avatarURL);
+  };
+ })
 
  client.login(process.env.BOT_TOKEN);
