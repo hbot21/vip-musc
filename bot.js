@@ -304,7 +304,7 @@ client.on('message', message => {
   });
 client.on('message', message => {
 
-    if(message.content.startsWith(prefix + 'id')) {
+    if(message.content.startsWith(prefix + 'هوية')) {
 if(!message.channel.guild) return;
       var args = message.content.split(" ").slice(1);
       let user = message.mentions.users.first();
