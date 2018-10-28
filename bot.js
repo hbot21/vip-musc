@@ -6,7 +6,7 @@ var Canvas = require('canvas')
 var jimp = require('jimp')
 var moment = require("moment");
 //ALPHACODE
-
+const prefix = "$"
 client.on('message', message => {
 
     if(message.content.startsWith(prefix + 'id')) {
