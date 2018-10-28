@@ -205,136 +205,200 @@ function isYoutube(str) {
     });
 
 
-const dateFormat = require('dateformat');
-var Canvas = require('canvas')
-var jimp = require('jimp')
-var moment = require("moment");
-//ALPHACODE
+client.on("message", message => {
+ 
+    var args = message.content.split(' ').slice(1);
+    var msg = message.content.toLowerCase();
+    if( !message.guild ) return;
+    if( !msg.startsWith( prefix + 'role' ) ) return;
+    if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__ليس لديك صلاحيات__**');
+    if( msg.toLowerCase().startsWith( prefix + 'rerole' ) ){
+        if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد سحب منه الرتبة**' );
+        if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );
+        var role = msg.split(' ').slice(2).join(" ").toLowerCase();
+        var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
+        if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );if( message.mentions.members.first() ){
+            message.mentions.members.first().removeRole( role1 );
+            return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم سحب من **');
+        }
+        if( args[0].toLowerCase() == "all" ){
+            message.guild.members.forEach(m=>m.removeRole( role1 ))
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من الكل رتبة**');
+        } else if( args[0].toLowerCase() == "bots" ){
+            message.guild.members.filter(m=>m.user.bot).forEach(m=>m.removeRole(role1))
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البوتات رتبة**');
+        } else if( args[0].toLowerCase() == "humans" ){
+            message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.removeRole(role1))
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البشريين رتبة**');
+        }  
+    } else {
+        if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد اعطائها الرتبة**' );
+        if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );
+        var role = msg.split(' ').slice(2).join(" ").toLowerCase();
+        var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
+        if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );if( message.mentions.members.first() ){
+            message.mentions.members.first().addRole( role1 );
+            return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء **');
+        }
+        if( args[0].toLowerCase() == "all" ){
+            message.guild.members.forEach(m=>m.addRole( role1 ))
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الكل رتبة**');
+        } else if( args[0].toLowerCase() == "bots" ){
+            message.guild.members.filter(m=>m.user.bot).forEach(m=>m.addRole(role1))
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البوتات رتبة**');
+        } else if( args[0].toLowerCase() == "humans" ){
+            message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
+        }
+    }
+});
+
 
 client.on('message', message => {
+    if (message.content.startsWith("link")) {
 
-    if(message.content.startsWith(prefix + 'id')) {
-if(!message.channel.guild) return;
-      var args = message.content.split(" ").slice(1);
-      let user = message.mentions.users.first();
-      var men = message.mentions.users.first();
-         var heg;
-         if(men) {
-             heg = men
-         } else {
-             heg = message.author
-         }
-       var mentionned = message.mentions.members.first();
-          var h;
-         if(mentionned) {
-             h = mentionned
-         } else {
-             h = message.member
-         }
-  moment.locale('ar');
-     const w = ['./img/id1.png','./img/id2.png','./img/id3.png','./img/id4.png','./img/id5.gif'];
-        let Image = Canvas.Image,
-            canvas = new Canvas(500, 500),
-            ctx = canvas.getContext('2d');
-        ctx.patternQuality = 'bilinear';
-        ctx.filter = 'bilinear';
-        ctx.antialias = 'subpixel';
-        ctx.shadowColor = 'rgba(0, 0, 0, 0)';
-        ctx.shadowOffsetY = 2;
-        ctx.shadowBlur = 2;
-        fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-            if (err) return console.log(err);
-            let BG = Canvas.Image;
-            let ground = new Image;
-            ground.src = Background;
-            ctx.drawImage(ground, 0, 0, 500, 500);
+  message.channel.createInvite({
+        thing: true,
+        maxUses: 2,
+        maxAge: 86400
+    }).then(invite =>
+      message.author.sendMessage(invite.url)
+    )
+  message.channel.send("**تم ارسال الرابط برسالة خاصة**")
 
-})
-                let url = h.user.displayAvatarURL.endsWith(".webp") ? h.user.displayAvatarURL.slice(5, -20) + ".png" : h.user.displayAvatarURL;
+message.author.send(`**مدة الرابط : يـوم
+عدد استخدامات الرابط : 2**`)
+
+
+    }
+});
+
+
+client.on("message", message => {
+  if (message.author.bot) return;
+	if(!message.channel.guild) return;       
+if (message.content.startsWith("=profile")) {
+                               let user = message.mentions.users.first();
+         var men = message.mentions.users.first();
+            var heg;
+            if(men) {
+                heg = men
+            } else {
+                heg = message.author
+            }
+          var mentionned = message.mentions.members.first();
+             var h;
+            if(mentionned) {
+                h = mentionned
+            } else {
+                h = message.member
+            }
+            var ment = message.mentions.users.first();
+            var getvalueof;
+            if(ment) {
+              getvalueof = ment;
+            } else {
+              getvalueof = message.author;
+            }//var ghost = tf 3lek xD
+   var mentionned = message.mentions.users.first();
+
+    var client;
+      if(mentionned){
+          var client = mentionned;
+      } else {
+          var client = message.author;
+          
+      }
+  const w = ['./PicsArt_08-28-06.21.07.png'];
+if (!games[getvalueof.id]) games[getvalueof.id] = {wins: 0,loses: 0,points: 0,total: 0,credits: 100,level: 1,};          
+            let Image = Canvas.Image,
+            canvas = new Canvas(300, 300),
+            ctx = canvas.getContext('2d');       
+      fs.readFile(`${dataPro[getvalueof.id].wallSrc}`, function (err, Background) {
+          fs.readFile(`${w[0]}`, function (err, Background) {
+          if (err) return console.log(err);
+          let BG = Canvas.Image;
+          let ground = new Image;
+          ground.src = Background;
+          ctx.drawImage(ground, 0, 0, 297, 305);
+});
+          if (err) return console.log(err);
+          let BG = Canvas.Image;
+          let ground = new Image;
+          ground.src = Background;
+          ctx.drawImage(ground, 0, 0, 300, 305);
+});
+
+
+
+                let url = getvalueof.displayAvatarURL.endsWith(".webp") ? getvalueof.displayAvatarURL.slice(5, -20) + ".png" : getvalueof.displayAvatarURL;
                 jimp.read(url, (err, ava) => {
                     if (err) return console.log(err);
                     ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
                         if (err) return console.log(err);
-  //time dateformet
-  const millis = new Date().getTime() - h.user.createdAt.getTime();
-  const now = new Date();
-  dateFormat(now, 'dddd, mmmm dS, yyyy');
-  const stats2 = ['online', 'Low', 'Medium', 'Insane'];
-  const days = millis / 1000 / 60 / 60 / 24;
-            dateFormat(now, 'dddd, mmmm dS, yyyy');
-            
-        
-                          //دخولك الديسكورد
-                          var day = ` ${days.toFixed(0)} `
-                          ctx.font = '27px Arial Bold';
-                          ctx.fontSize = '30px';
-                          ctx.fillStyle = "#030000";
-                          ctx.textAlign = "center";
-                          ctx.fillText(day, 109, 97)
-              //wl
-              var millis1;
-        if(mentionned){
-            var millis1 = new Date().getTime() - mentionned.joinedAt
-        } else {
-            var millis1 = new Date().getTime() - moment(message.member.joinedAt);;
-            
-        }
-
-  const days1 = millis1 / 1000 / 60 / 60 / 24;
-  
-                        //دخولك السيرفر
-                        var day2 = ` ${days1.toFixed(0)} `
-                        ctx.font = '27px Arial Bold';
-                        ctx.fontSize = '20px';
-                        ctx.fillStyle = "#030000";
-                        ctx.textAlign = "center";
-                        ctx.fillText(day2, 388, 97); 
-
-                        //ur name
-                        ctx.font = '27px BlowBrush';
-                        ctx.fontSize = '30px';
-                        ctx.fillStyle = "#030000";
-                        ctx.textAlign = "center";
-                        ctx.fillText(h.user.username, 245, 365);
-                        //tag
-                        ctx.font = '27px Arial Bold';
-                        ctx.fontSize = '45px';
-                        ctx.fillStyle = "#030000";
-                        ctx.textAlign = "center";
-                        ctx.fillText(`#${heg.discriminator}`, 120, 450);
                         
-                        //حالتك
-                           let status;
-    if (h.presence.status === 'online') {
-        status = 'Online';
-    } else if (h.presence.status === 'dnd') {
-        status = 'Dnd';
-    } else if (h.presence.status === 'idle') {
-        status = 'Idle';
-    } else if (h.presence.status === 'offline') {
-        status = 'Offline';
-    }
-                        ctx.font = '27px Arial Bold';//ALPHACODE
-                        ctx.fontSize = '30px';
-                        ctx.fillStyle = "#030000";
-                        ctx.textAlign = "center";
-                        ctx.fillText(`${status}`, 380, 450);//ALPHACODE
-                        
+
                         //Avatar
-                        let Avatar = Canvas.Image;
+                       let Avatar = Canvas.Image;
                         let ava = new Avatar;
                         ava.src = buf;
-                        ctx.beginPath();
-                        ctx.arc(250, 238, 64, 0, Math.PI*2, true); //ALPHACODE
-                        ctx.closePath();
-                        ctx.clip();
-                        ctx.drawImage(ava, 185, 172, 130, 130 );
-                         
-     message.channel.sendFile(canvas.toBuffer())//ALPHACODE
-})
-   })
+                     ctx.drawImage(ava, 8, 43, 80, 85); // احداثيات صورتك
+                        
+                        //ur name
+                        ctx.font = 'bold 16px Arial'; // حجم الخط و نوعه
+                        ctx.fontSize = '40px'; // عرض الخط
+                        ctx.fillStyle = "#000000"; // لون الخط
+                        ctx.textAlign = "left"; // محاذا ة النص
+                        ctx.fillText(`${getvalueof.username}`, 130, 125) // احداثيات اسمك          
 
-} });
+                         //bord
+                        ctx.font = "regular 12px Cairo" // نوع الخط وحجمه
+                        ctx.fontSize = '50px'; // عرض الخط
+                        ctx.fillStyle = "#f0ff00" // لون الخط    
+                        ctx.textAlign = "left"; // محاذا ة النص
+                        ctx.fillText(`Soon...`, 170, 198) // احداثيات ترتيبك
+                        
+                        //credit
+                        ctx.font = "bold 10px Arial" // نوع الخط وحجمه
+                        ctx.fontSize = '10px'; // عرض الخط
+                        ctx.fillStyle = '#FFFFFF' // لون الخط  
+                        ctx.textAlign = "left"; // محاذا ة النص
+                        ctx.fillText(`$ ${games[getvalueof.id].credits}`, 156, 163) // احداثيات المصاري                        
+                        
+                        //poits
+                        ctx.font = "bold 13px Arial" // ن
+                        ctx.fontSize = '10px'; // عرض الخطوع الخط وحجمه
+                        ctx.fillStyle = "#FFFFFF" // لون الخط 
+                        ctx.textAlign = "left"; // محاذا ة النص
+                        ctx.fillText(`${profile[getvalueof.id].points}`, 173, 182) // احداثيات النقاط
+
+                        //Level
+                        ctx.font = "bold 27px Arial" // نوع الخط و حجمه
+                        ctx.fontSize = '50px'; // عرض الخط
+                        ctx.fillStyle = "#FFFFFF" // لون الخط
+                        ctx.textAlign = "left"; // محاذا ة النص
+                        ctx.fillText(`${profile[getvalueof.id].level}`, 30, 200) // احداثيات اللفل
+                       
+                        //info
+                        ctx.font = "blod 13px Arial" // ن
+                        ctx.fontSize = '10px'; // عرض الخطوع الخط وحجمه
+                        ctx.fillStyle = "#FFFFFF" // لون الخط 
+                        ctx.textAlign = "left"; // محاذا ة النص
+                        ctx.fillText(`${profile[getvalueof.id].info}`, 118, 40) // احداثيات النقاط
+
+                        // REP
+                        ctx.font = "bold 27px Arial";
+                        ctx.fontSize = "100px";
+                        ctx.fillStyle = "#FFFFFF";
+                        ctx.textAlign = "left";
+                        ctx.fillText(`+${profile[getvalueof.id].rep}`, 18,270)
+                      
+message.channel.sendFile(canvas.toBuffer())
+})
+})
+}
+
+});
 
 
 client.login(process.env.BOT_TOKEN);
