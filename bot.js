@@ -5,7 +5,10 @@ const request = require('request');
 const fs = require('fs');
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
- 
+const dateFormat = require('dateformat');
+var Canvas = require('canvas')
+var jimp = require('jimp')
+var moment = require("moment"); 
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
 const prefix = '$';
 client.on('ready', function() {
