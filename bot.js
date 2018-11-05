@@ -955,7 +955,7 @@ $unmute : لفك عن العضو الميوت
 $role  : عطاء عضو رتبة
 $role all : اعطاء رتبة حميع الاعضاء
 $cr-colors : انشاء 50 لون
-$server : معلومات السيرفر
+$clear : مسح الشات
 
  أوامر الميوزك 
 $join :  دخول البوت الي الروم
@@ -1238,5 +1238,15 @@ message.channel.sendFile(canvas.toBuffer())
 	     }
   });
 
+client.on('ready', () => {
+   console.log(`----------------`);
+      console.log(`Desert Bot- Script By : i1Suhaib`);
+        console.log(`----------------`);
+      console.log(`ON ${client.guilds.size} Servers '     Script By : i1Suhaib ' `);
+    console.log(`----------------`);
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`$help | $inv`,"http://twitch.tv/S-F")
+client.user.setStatus("dnd")
+});
 
 client.login(process.env.BOT_TOKEN);
